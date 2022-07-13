@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './MealItem.module.scss'
+import MealItemForm from "../MealItemForm/MealItemForm";
 
 const MealItem = (props) => {
     return (
@@ -9,7 +10,9 @@ const MealItem = (props) => {
                 <p className={styles.description}>{props.meal.description}</p>
                 <span className={styles.price}>{props.meal.price} Тг.</span>
             </div>
-            <div></div>
+            <div>
+                <MealItemForm />
+            </div>
         </div>
     );
 };
