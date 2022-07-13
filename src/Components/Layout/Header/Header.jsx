@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Header.module.scss'
+import HeaderCartButton from "./HeaderCartButton/HeaderCartButton";
 
 const Header = (props) => {
     return (
@@ -7,7 +8,7 @@ const Header = (props) => {
             <header className={styles.headerWrapper}>
                 <div className={`container ${styles.headerContent}`}>
                     <h1>Япона кухня</h1>
-                    <button>Корзина</button>
+                    <HeaderCartButton />
                 </div>
             </header>
         </React.Fragment>
