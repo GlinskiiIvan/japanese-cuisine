@@ -29,7 +29,7 @@ const Cart = (props) => {
                 <span>Итого: 4200 Тг.</span>
             </div>
             <div className={styles.actions}>
-                <button>Закрыть</button>
+                <button onClick={() => props.closeModal()}>Закрыть</button>
                 <button>Заказать</button>
             </div>
         </div>

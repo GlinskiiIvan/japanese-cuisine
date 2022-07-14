@@ -11,7 +11,6 @@ const Header = (props) => {
                 <div className={`container ${styles.headerContent}`}>
                     <h1>Япона кухня</h1>
                     <HeaderCartButton />
-                    <ModalWindow><Cart /></ModalWindow>
                 </div>
             </header>
         </React.Fragment>
