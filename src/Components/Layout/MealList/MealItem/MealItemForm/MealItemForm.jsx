@@ -1,12 +1,12 @@
 import React from 'react';
 import styles from './MealItemForm.module.scss'
-import Input from "../../../UI/Input/Input";
+import Input from "../../../../UI/Input/Input";
 
 const MealItemForm = (props) => {
     return (
         <form className={styles.form}>
             <Input label='Количество:' input={{
-                id: 'amount',
+                id: Math.random(),
                 type: 'number',
                 min: 1,
                 step: 1,
