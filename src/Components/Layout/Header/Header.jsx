@@ -1,8 +1,6 @@
 import React from 'react';
 import styles from './Header.module.scss'
 import HeaderCartButton from "./HeaderCartButton/HeaderCartButton";
-import ModalWindow from "../../UI/ModalWindow/ModalWindow";
-import Cart from "../../Cart/Cart";
 
 const Header = (props) => {
     return (

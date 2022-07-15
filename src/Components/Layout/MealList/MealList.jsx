@@ -39,7 +39,7 @@ const MealList = (props) => {
         <section className='container'>
             <Card>
                 {
-                    DUMMY_MEALS.map((meal) => <MealItem meal={meal} />)
+                    DUMMY_MEALS.map((meal) => <MealItem key={meal.id} meal={meal} />)
                 }
             </Card>
         </section>

@@ -18,4 +18,4 @@ const ModalWindow = (props) => {
     );
 };
 
-export default ModalWindow;
+export default ModalWindow; 
