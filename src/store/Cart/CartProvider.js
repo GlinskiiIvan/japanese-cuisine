@@ -8,15 +8,60 @@ const defaultCartState = {
 
 const cartReducer = (state, action) => {
     switch (action.type) {
-        case 'ADD_ITEM':
+        case 'ADD_ITEM': {
+            const updatedTotalPrice = state.totalPrice + action.item.price * action.item.amount;
+
+            const existingCartItemIndex = state.items.findIndex((item) => {
+                return item.id === action.item.id
+            })
+            const existingCartItem = state.items[existingCartItemIndex];
+
+            let updatedItem;
+            let updatedItems;
+
+            if (existingCartItem) {
+                updatedItem = {
+                    ...existingCartItem,
+                    amount: existingCartItem.amount + action.item.amount
+                }
+                updatedItems = [...state.items];
+                updatedItems[existingCartItemIndex] = updatedItem;
+            } else {
+                updatedItems = [...state.items, action.item];
+            }
+
             return {
-                items: [...state.items, action.item],
-                totalPrice: state.totalPrice + action.item.price * action.item.amount
+                items: updatedItems,
+                totalPrice: updatedTotalPrice
             };
-        case 'REMOVE_ITEM':
-            return defaultCartState;
+        }
+        case 'REMOVE_ITEM': {
+            const existingCartItemIndex = state.items.findIndex((item) => {
+                return item.id === action.id
+            })
+            const existingCartItem = state.items[existingCartItemIndex];
+            const updatedTotalPrice = state.totalPrice - existingCartItem.price;
+
+            let updatedItem;
+            let updatedItems;
+
+            if (existingCartItem.amount > 1) {
+                updatedItem = {
+                    ...existingCartItem,
+                    amount: existingCartItem.amount - 1
+                }
+                updatedItems = [...state.items];
+                updatedItems[existingCartItemIndex] = updatedItem;
+            } else {
+                updatedItems = state.items.filter((item) => item.id !== action.id)
+            }
+
+            return {
+                items: updatedItems,
+                totalPrice: updatedTotalPrice
+            };
+        }
     }
-    return defaultCartState;
 }
 
 const CartProvider = (props) => {
